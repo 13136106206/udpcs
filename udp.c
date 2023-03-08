@@ -1,4 +1,4 @@
-#include "/work/dhj.h/dhj.h"
+#include "dhj.h"
 #define BUFFER_SIZE 128
 
 bool flag_s = false;
