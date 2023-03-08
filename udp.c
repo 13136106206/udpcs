@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
 			char address[INET_ADDRSTRLEN] = {0};
 			int port = ntohs(servaddr.sin_port);
 			inet_ntop(AF_INET, &servaddr.sin_addr, address, INET_ADDRSTRLEN);
-			logd("Received a message from (%s): %s port %d", address, port, buf);
+			logd("Received a message from (%s port %d): %s", address, port, buf);
 		}
 	} else {
 		char address[INET_ADDRSTRLEN] = {0};
@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
 
 		while(true) {
 			if(sendto(sockfd, buf, sizeof(buf), 0, (struct sockaddr *)&servaddr, peerlen) >= 0) {
-				logd("Sent a message to (%s port %s): %s", address, port, buf);
+				logd("Sent a message to (%s port %d): %s", address, port, buf);
 			} else {
 				logd("Sent: %s", strerror(errno));
 			}
