@@ -2,7 +2,7 @@
 #define BUFFER_SIZE 128
 
 bool flag_s = false;
-int sockfd = 0;
+int i, sockfd = 0;
 struct sockaddr_in servaddr;
 socklen_t peerlen = 0;
 char buf[1500] = {0};
@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
 		int port = ntohs(servaddr.sin_port);
 		inet_ntop(AF_INET, &servaddr.sin_addr, address, INET_ADDRSTRLEN);
 
-		for(int i = 0; i < sizeof(buf); i++) {
+		for(i = 0; i < sizeof(buf); i++) {
 			buf[i] = i % 0xff;
 		}
 
